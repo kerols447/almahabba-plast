@@ -618,7 +618,7 @@ const PRODUCTS = [
   /* ---- Masterbatch ---- */
   {
     category: 'masterbatch',
-    img: 'assets/img/pellets-blue.jpg',
+    img: 'assets/img/studio-mb-color.jpg',
     swatch: '#1E5FA8',
     name: { ar: 'ماستر باتش ملون', en: 'Color Masterbatch' },
     desc: {
@@ -628,9 +628,7 @@ const PRODUCTS = [
   },
   {
     category: 'masterbatch',
-    /* [IMAGE] contains the black-pellet area of the collage —
-       replace with a dedicated black masterbatch photo when available */
-    img: 'assets/img/hero-pellets-collage.jpg',
+    img: 'assets/img/studio-mb-black.jpg',
     swatch: '#1F2937',
     name: { ar: 'ماستر باتش أسود', en: 'Black Masterbatch' },
     desc: {
@@ -640,7 +638,7 @@ const PRODUCTS = [
   },
   {
     category: 'masterbatch',
-    img: 'assets/img/pellets-white.jpg',
+    img: 'assets/img/studio-mb-white.jpg',
     swatch: '#E8EDF3',
     name: { ar: 'ماستر باتش أبيض', en: 'White Masterbatch' },
     desc: {
@@ -650,7 +648,7 @@ const PRODUCTS = [
   },
   {
     category: 'masterbatch',
-    img: 'assets/img/pellets-ivory.jpg',
+    img: 'assets/img/studio-mb-additives.jpg',
     swatch: '#F3E3C3',
     name: { ar: 'ماستر باتش إضافات ومركبات', en: 'Additives & Compound Masterbatch' },
     desc: {
@@ -662,7 +660,7 @@ const PRODUCTS = [
   /* ---- PET colors ---- */
   {
     category: 'pet',
-    img: 'assets/img/pellets-green.jpg',
+    img: 'assets/img/studio-pet-green.jpg',
     swatch: '#3FAE29',
     name: { ar: 'ألوان PET زجاجات', en: 'PET Bottle Colors' },
     desc: {
@@ -672,7 +670,7 @@ const PRODUCTS = [
   },
   {
     category: 'pet',
-    img: 'assets/img/pellets-red.jpg',
+    img: 'assets/img/studio-pet-red.jpg',
     swatch: '#D63031',
     name: { ar: 'ألوان PET specials', en: 'PET Special Colors' },
     desc: {
@@ -684,7 +682,7 @@ const PRODUCTS = [
   /* ---- Raw materials ---- */
   {
     category: 'raw',
-    img: 'assets/img/eva-yellow.jpg',
+    img: 'assets/img/studio-eva-yellow.jpg',
     swatch: '#E6B800',
     name: { ar: 'خامة EVA', en: 'EVA Material' },
     desc: {
@@ -694,7 +692,7 @@ const PRODUCTS = [
   },
   {
     category: 'raw',
-    img: 'assets/img/pvc-compound-clear.jpg',
+    img: 'assets/img/studio-pvc-clear.jpg',
     swatch: '#9FB3C8',
     name: { ar: 'خامة PVC', en: 'PVC Material' },
     desc: {
@@ -704,7 +702,7 @@ const PRODUCTS = [
   },
   {
     category: 'raw',
-    img: 'assets/img/pellets-natural.jpg',
+    img: 'assets/img/studio-raw-natural.jpg',
     swatch: '#DCE5EF',
     name: { ar: 'خامات بلاستيك أخرى', en: 'Other Plastic Raw Materials' },
     desc: {
