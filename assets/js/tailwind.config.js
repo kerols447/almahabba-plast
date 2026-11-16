@@ -30,15 +30,16 @@ tailwind.config = {
         ink:     '#1F2937',     // body text
         muted:   '#5B6472'      // secondary text (AA on white)
       },
-      /* Cairo for Arabic, Inter for English — toggled on <body> */
+      /* IBM Plex Sans Arabic (AR body) + Alexandria (AR display) / Inter (EN) — toggled on <body> */
       fontFamily: {
-        cairo: ['Cairo', 'Tahoma', 'sans-serif'],
-        inter: ['Inter', 'Segoe UI', 'sans-serif']
+        cairo: ['IBM Plex Sans Arabic', 'Tahoma', 'sans-serif'],
+        inter: ['Inter', 'Segoe UI', 'sans-serif'],
+        display: ['Alexandria', 'IBM Plex Sans Arabic', 'Tahoma', 'sans-serif']
       },
       maxWidth: { content: '1200px' },
       boxShadow: {
-        card: '0 4px 20px -4px rgba(7, 31, 63, 0.08)',
-        lift: '0 14px 34px -10px rgba(7, 31, 63, 0.18)',
+        card: '0 1px 2px rgba(7, 31, 63, 0.05), 0 8px 24px -8px rgba(7, 31, 63, 0.10)',
+        lift: '0 2px 4px rgba(7, 31, 63, 0.06), 0 18px 40px -12px rgba(7, 31, 63, 0.20)',
         header: '0 2px 16px -6px rgba(7, 31, 63, 0.12)'
       },
       transitionTimingFunction: { smooth: 'cubic-bezier(0.22, 1, 0.36, 1)' }

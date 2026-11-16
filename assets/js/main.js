@@ -44,8 +44,8 @@ function t(key) {
 }
 
 /** Build the wa.me link with a prefilled message in the active language. */
-function whatsappLink() {
-  return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(t('wa.message'));
+function whatsappLink(msg) {
+  return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg || t('wa.message'));
 }
 
 /** Apply translations to every tagged element inside a root (default: document). */
@@ -63,6 +63,9 @@ function applyI18n(root) {
   scope.querySelectorAll('[data-i18n-title]').forEach(function (el) {
     el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
   });
+  scope.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+    el.setAttribute('alt', t(el.getAttribute('data-i18n-alt')));
+  });
   /* Refresh WhatsApp hrefs so the prefilled message follows the language */
   scope.querySelectorAll('[data-wa-link]').forEach(function (el) {
     el.setAttribute('href', whatsappLink());
@@ -78,7 +81,7 @@ function setLang(lang) {
   html.setAttribute('lang', currentLang);
   html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
 
-  /* Font swap: Cairo for AR, Inter for EN */
+  /* Font swap: IBM Plex Sans Arabic/Alexandria for AR, Inter for EN */
   document.body.classList.toggle('font-cairo', currentLang === 'ar');
   document.body.classList.toggle('font-inter', currentLang === 'en');
 
@@ -535,6 +538,37 @@ function showAlert(form, type, message) {
   alert.setAttribute('role', 'alert');
 }
 
+/** Build a structured WhatsApp message from a submitted request form.
+    Used while the Formspree endpoint is not configured yet, so every
+    request still reaches the company instead of dying in an error. */
+function buildWhatsAppRequest(form) {
+  const type = (form.querySelector('[name="request_type"]') || {}).value;
+  const lines = [t(type === 'custom-color' ? 'form.waTitle.color' : 'form.waTitle.quote')];
+  const fieldKeys = [
+    ['name', 'form.name'],
+    ['company', 'form.company'],
+    ['phone', 'form.phone'],
+    ['email', 'form.email'],
+    ['product_type', 'form.productType'],
+    ['color_code', 'form.color'],
+    ['material', 'form.material'],
+    ['monthly_quantity', 'form.quantity'],
+    ['delivery_location', 'form.delivery'],
+    ['notes', 'form.notes']
+  ];
+  fieldKeys.forEach(function (pair) {
+    const field = form.querySelector('[name="' + pair[0] + '"]');
+    if (!field) return;
+    const value = field.tagName === 'SELECT'
+      ? (field.selectedIndex > 0 ? field.options[field.selectedIndex].text : '')
+      : field.value.trim();
+    if (value) lines.push(t(pair[1]) + ': ' + value);
+  });
+  const image = form.querySelector('[name="sample_image"]');
+  if (image && image.files && image.files.length) lines.push(t('form.waSample'));
+  return lines.join('\n');
+}
+
 function initForms() {
   document.querySelectorAll('[data-mp-form]').forEach(function (form) {
     const fields = form.querySelectorAll('input:not([name="website"]):not([type="hidden"]), select, textarea');
@@ -572,9 +606,12 @@ function initForms() {
       if (submitBtn) submitBtn.disabled = true;
       if (btnLabel) btnLabel.textContent = t('cta.sending');
 
-      /* [PLACEHOLDER] guard: endpoint not configured yet */
+      /* Formspree not configured yet: deliver the request over WhatsApp
+         instead of showing a dead-end error. Once FORMSPREE_ENDPOINT is
+         set, submissions go to email as designed. */
       if (FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID') !== -1) {
-        showAlert(form, 'error', t('form.error'));
+        window.open(whatsappLink(buildWhatsAppRequest(form)), '_blank', 'noopener');
+        showAlert(form, 'success', t('form.waReady'));
         if (submitBtn) submitBtn.disabled = false;
         if (btnLabel) btnLabel.textContent = originalLabel;
         return;
@@ -610,8 +647,9 @@ function initForms() {
    category: 'masterbatch' | 'pet' | 'raw'
    name/desc are {ar, en} objects so the grid re-renders on
    language switch. img paths live in assets/img/.
-   [TO CONFIRM] Replace placeholder names/descriptions with the
-   company's actual product list and grades.
+   Names and material families follow the company's own poster
+   (EVA / PVC / PCU) and brief; exact grades and minimum
+   quantities are agreed per request and quoted individually.
    ============================================================ */
 
 const PRODUCTS = [
@@ -622,8 +660,8 @@ const PRODUCTS = [
     swatch: '#1E5FA8',
     name: { ar: 'ماستر باتش ملون', en: 'Color Masterbatch' },
     desc: {
-      ar: 'ألوان مركزة عالية الثبات لجميع تطبيقات البلاستيك، تُصنَّع بأحدث الماكينات. [TO CONFIRM: قائمة الألوان التفصيلية]',
-      en: 'Concentrated, consistent colors for all plastic applications, produced on modern lines. [TO CONFIRM: detailed color list]'
+      ar: 'ألوان مركزة عالية الثبات لجميع تطبيقات البلاستيك، تُصنَّع بأحدث الماكينات وتُطابق عينتكم قبل الإنتاج.',
+      en: 'Concentrated, consistent colors for all plastic applications, produced on modern lines and matched to your sample before production.'
     }
   },
   {
@@ -632,8 +670,8 @@ const PRODUCTS = [
     swatch: '#1F2937',
     name: { ar: 'ماستر باتش أسود', en: 'Black Masterbatch' },
     desc: {
-      ar: 'أسود عميق بتغطية عالية لتطبيقات التغليف والحقن والمواسير. [TO CONFIRM: الدرجات المتاحة]',
-      en: 'Deep black with high coverage for packaging, injection and pipe applications. [TO CONFIRM: available grades]'
+      ar: 'أسود عميق بتغطية عالية وتشتت منتظم لتطبيقات التغليف والحقن والمواسير.',
+      en: 'Deep black with high coverage and uniform dispersion for packaging, injection and pipe applications.'
     }
   },
   {
@@ -642,8 +680,8 @@ const PRODUCTS = [
     swatch: '#E8EDF3',
     name: { ar: 'ماستر باتش أبيض', en: 'White Masterbatch' },
     desc: {
-      ar: 'بياض ناصع ولمعة عالية للأفلام والعبوات والتطبيقات الهندسية. [TO CONFIRM: النسبة والدرجات]',
-      en: 'Bright whiteness and high gloss for films, packaging and engineering uses. [TO CONFIRM: loading ratio and grades]'
+      ar: 'بياض ناصع ولمعة عالية للأفلام والعبوات والتطبيقات الهندسية، بنسب تحميل تُحدد حسب تطبيقكم.',
+      en: 'Bright whiteness and high gloss for films, packaging and engineering uses, with loading ratios set for your application.'
     }
   },
   {
@@ -652,8 +690,8 @@ const PRODUCTS = [
     swatch: '#F3E3C3',
     name: { ar: 'ماستر باتش إضافات ومركبات', en: 'Additives & Compound Masterbatch' },
     desc: {
-      ar: 'مركبات وإضافات مخصصة حسب طلب المصنع. [TO CONFIRM: أنواع الإضافات التي تنتجها الشركة فعلياً]',
-      en: 'Custom compounds and additives per factory request. [TO CONFIRM: which additive types the company actually produces]'
+      ar: 'مركبات وإضافات مخصصة حسب طلب المصنع — نحدد معكم الوصفة المناسبة لخامتكم وتطبيقكم.',
+      en: 'Custom compounds and additives per factory request — we define the right formulation with you for your material and application.'
     }
   },
 
@@ -664,18 +702,18 @@ const PRODUCTS = [
     swatch: '#3FAE29',
     name: { ar: 'ألوان PET زجاجات', en: 'PET Bottle Colors' },
     desc: {
-      ar: 'درجات لونية نقية للزجاجات والعبوات الشفافة بمطابقة دقيقة وثبات حراري. [TO CONFIRM: الدرجات]',
-      en: 'Pure color grades for transparent bottles and packaging with precise matching and heat stability. [TO CONFIRM: grades]'
+      ar: 'درجات لونية نقية للزجاجات والعبوات الشفافة بمطابقة دقيقة وثبات حراري أثناء النفخ.',
+      en: 'Pure color grades for transparent bottles and packaging with precise matching and heat stability during blowing.'
     }
   },
   {
     category: 'pet',
     img: 'assets/img/studio-pet-red.jpg',
     swatch: '#D63031',
-    name: { ar: 'ألوان PET specials', en: 'PET Special Colors' },
+    name: { ar: 'ألوان PET خاصة', en: 'PET Special Colors' },
     desc: {
-      ar: 'تطوير ألوان PET خاصة حسب عينة العميل خلال 24–48 ساعة. [TO CONFIRM: أمثلة ألوان منفذة]',
-      en: 'Custom PET colors developed from the client sample within 24–48 hours. [TO CONFIRM: executed color examples]'
+      ar: 'تطوير ألوان PET خاصة حسب عينة العميل خلال ⁦24‑48⁩ ساعة من اعتماد العينة.',
+      en: 'Custom PET colors developed from the client sample within ⁦24‑48⁩ hours of sample approval.'
     }
   },
 
@@ -686,8 +724,8 @@ const PRODUCTS = [
     swatch: '#E6B800',
     name: { ar: 'خامة EVA', en: 'EVA Material' },
     desc: {
-      ar: 'خامات EVA مستوردة وفق معايير جودة محددة لتطبيقات النعال والحقن. [TO CONFIRM: الماركات والدرجات]',
-      en: 'Imported EVA under defined quality standards for footwear and injection applications. [TO CONFIRM: brands and grades]'
+      ar: 'خامات EVA مستوردة وفق معايير جودة محددة لتطبيقات النعال والحقن وغيرها.',
+      en: 'Imported EVA under defined quality standards for footwear, injection and other applications.'
     }
   },
   {
@@ -696,8 +734,8 @@ const PRODUCTS = [
     swatch: '#9FB3C8',
     name: { ar: 'خامة PVC', en: 'PVC Material' },
     desc: {
-      ar: 'مركبات وخامات PVC لمواسير وتطبيقات صناعية واسعة. [TO CONFIRM: الدرجات والمواصفات]',
-      en: 'PVC compounds and materials for pipes and a wide range of industrial applications. [TO CONFIRM: grades and specs]'
+      ar: 'مركبات وخامات PVC للمواسير والتطبيقات الصناعية الواسعة، بمواصفات تُحدد مع كل طلب.',
+      en: 'PVC compounds and materials for pipes and a wide range of industrial applications, with specs agreed per request.'
     }
   },
   {
@@ -706,8 +744,8 @@ const PRODUCTS = [
     swatch: '#DCE5EF',
     name: { ar: 'خامات بلاستيك أخرى', en: 'Other Plastic Raw Materials' },
     desc: {
-      ar: 'نستورد جميع أنواع خامات البلاستيك حسب طلب العميل ومعاييرنا المخصصة. [TO CONFIRM: أهم الخامات المتاحة حالياً]',
-      en: 'We import all plastic raw materials per client request under our dedicated standards. [TO CONFIRM: currently stocked materials]'
+      ar: 'خامات إضافية مثل PCU وغيرها حسب طلب العميل، نستوردها وفق معاييرنا المخصصة لجودة الاستيراد.',
+      en: 'Additional materials such as PCU and others per client request, imported under our dedicated import-quality standards.'
     }
   }
 ];
@@ -715,12 +753,16 @@ const PRODUCTS = [
 /** Render a product card for the products page grid. */
 function productCard(p, index) {
   const swatchStyle = 'background:' + p.swatch + ';' + (p.swatch === '#E8EDF3' || p.swatch === '#DCE5EF' ? 'border:1px solid #D4DBE5;' : '');
+  const waMsg = currentLang === 'ar'
+    ? 'مرحباً، أريد عرض سعر لمنتج: ' + p.name.ar
+    : 'Hello, I would like a quote for: ' + p.name.en;
   return (
-    '<article class="card card-hover overflow-hidden flex flex-col reveal" data-reveal-delay="' + (index % 3) * 120 + '">' +
-      '<div class="aspect-[4/3] overflow-hidden bg-surface">' +
+    '<article class="card card-hover group overflow-hidden flex flex-col reveal" data-reveal-delay="' + (index % 3) * 120 + '">' +
+      '<div class="relative aspect-[4/3] overflow-hidden bg-surface">' +
         '<img src="' + p.img + '" alt="' + p.name[currentLang] + '" loading="lazy" decoding="async" ' +
-        'class="w-full h-full object-cover" width="1024" height="1024" ' +
-        'onerror="this.onerror=null;this.src=\'assets/img/hero-pellets-collage.jpg\';">' +
+        'class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" width="1024" height="1024" ' +
+        'onerror="this.onerror=null;this.src=\'assets/img/studio-hero.jpg\';">' +
+        '<span class="absolute top-3 start-3 bg-white/95 text-navy text-[11px] font-extrabold px-3 py-1 rounded-full shadow-sm">' + t('products.' + p.category) + '</span>' +
       '</div>' +
       '<div class="p-6 flex flex-col flex-1">' +
         '<div class="flex items-center gap-3 mb-3">' +
@@ -728,10 +770,15 @@ function productCard(p, index) {
           '<h3 class="text-lg font-extrabold text-navy leading-snug">' + p.name[currentLang] + '</h3>' +
         '</div>' +
         '<p class="text-muted text-sm leading-relaxed flex-1">' + p.desc[currentLang] + '</p>' +
-        '<a href="contact.html#quote-form" class="inline-flex items-center gap-2 text-primary font-bold mt-4 hover:gap-3 transition-all text-sm">' +
-          '<span>' + t('products.inquire') + '</span>' +
-          '<i data-lucide="arrow-left" class="w-4 h-4 icon-flip"></i>' +
-        '</a>' +
+        '<div class="mt-4 flex items-center justify-between gap-3">' +
+          '<a href="contact.html#quote-form" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all text-sm">' +
+            '<span>' + t('products.inquire') + '</span>' +
+            '<i data-lucide="arrow-left" class="w-4 h-4 icon-flip"></i>' +
+          '</a>' +
+          '<a href="' + whatsappLink(waMsg) + '" target="_blank" rel="noopener" aria-label="' + t('cta.whatsapp') + ': ' + p.name[currentLang] + '" class="w-9 h-9 rounded-full bg-[#25D366] text-white hover:bg-[#128C7E] flex items-center justify-center transition-colors shrink-0">' +
+            '<i data-lucide="message-circle" class="w-4 h-4"></i>' +
+          '</a>' +
+        '</div>' +
       '</div>' +
     '</article>'
   );

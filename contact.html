@@ -23,7 +23,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Alexandria:wght@500;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
   <link rel="stylesheet" href="assets/css/custom.css">
@@ -40,7 +40,7 @@
 
     <!-- PAGE HERO (shared compact banner pattern) -->
     <section class="relative overflow-hidden bg-gradient-to-bl from-navy to-primary text-white">
-      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0 pointer-events-none dot-grid" aria-hidden="true">
         <span class="pellet pellet-float absolute w-12 h-12 bg-accent/50 top-10 end-[14%]"></span>
         <span class="pellet pellet-float absolute w-8 h-8 bg-green-400/40 bottom-10 start-[10%]" style="animation-delay:1.2s"></span>
       </div>
@@ -174,7 +174,6 @@
             <span class="w-12 h-12 rounded-2xl bg-primary-50 text-primary flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5"></i></span>
             <span>
               <span class="block font-extrabold text-navy" data-i18n="contact.address"></span>
-              <span class="block text-xs text-muted mt-1" data-i18n="contact.addressNote"></span>
             </span>
           </div>
 
@@ -196,7 +195,7 @@
       <div class="max-w-content mx-auto px-4 sm:px-6 py-14">
         <div class="text-center mb-8 reveal">
           <h2 class="text-2xl sm:text-3xl font-black text-navy mb-2" data-i18n="contact.map.title"></h2>
-          <p class="text-xs text-muted border border-dashed border-gray-300 rounded-full inline-block px-4 py-1.5" data-i18n="contact.map.note"></p>
+          <p class="text-sm text-muted" data-i18n="contact.map.note"></p>
         </div>
         <div class="rounded-3xl overflow-hidden shadow-card border border-gray-100 reveal" data-reveal-delay="100">
           <iframe

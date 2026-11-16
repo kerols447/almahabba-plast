@@ -33,6 +33,17 @@ body {
 html[lang="ar"] body { line-height: 1.8; }
 html[lang="en"] body { line-height: 1.65; }
 
+/* Display face for headings: Alexandria (AR) keeps weight hierarchy 800/900;
+   EN headings get tight tracking for a corporate feel */
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 {
+  font-family: 'Alexandria', 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  line-height: 1.35;
+}
+html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
 ::selection { background: var(--c-accent); color: #fff; }
 
 /* ---------- Custom scrollbar (brand language) ---------- */
@@ -75,7 +86,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--c-primary) var(--c-surface)
   gap: 10px;
   padding: 14px 30px;
   border-radius: 9999px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1rem;
   line-height: 1.4;
   cursor: pointer;
@@ -110,14 +121,14 @@ html { scrollbar-width: thin; scrollbar-color: var(--c-primary) var(--c-surface)
 /* ---------- Cards ---------- */
 .card {
   background: #fff;
-  border-radius: 1rem; /* rounded-2xl */
-  border: 1px solid #E5EAF1;
-  box-shadow: 0 4px 20px -4px rgba(7, 31, 63, 0.08);
+  border-radius: 1.25rem;
+  border: 1px solid #E3E9F2;
+  box-shadow: 0 1px 2px rgba(7, 31, 63, 0.05), 0 8px 24px -8px rgba(7, 31, 63, 0.10);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 34px -10px rgba(7, 31, 63, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 2px 4px rgba(7, 31, 63, 0.06), 0 18px 40px -12px rgba(7, 31, 63, 0.20);
 }
 
 /* ---------- Sticky header ---------- */
@@ -271,6 +282,12 @@ html[dir="rtl"] .icon-flip { transform: scaleX(-1); }
 
 /* keep phone numbers readable inside RTL paragraphs */
 .ltr-inline { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+/* ---------- Subtle pellet-dot texture for navy surfaces ---------- */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
 
 /* ---------- Reduced motion: kill all non-essential animation ---------- */
 @media (prefers-reduced-motion: reduce) {
