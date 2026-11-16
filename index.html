@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================= SEO (Arabic primary / English secondary) =================
+       [PLACEHOLDER] Replace https://www.almahabba-plast.com with the real domain
+       in canonical, OG URLs and sitemap.xml before deployment (Stage 5). -->
+  <title>المحبة بلاست | تصنيع الماستر باتش وتجارة خامات البلاستيك في مصر</title>
+  <meta name="description" content="المحبة بلاست — شركة مصرية رائدة في تصنيع الماستر باتش بجميع أنواعه واستيراد وتجارة جميع خامات البلاستيك. أي لون خاص خلال 24–48 ساعة. نخدم مصانع مصر والدول العربية والأوروبية.">
+  <link rel="canonical" href="https://www.almahabba-plast.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Al Mahabba Plast — المحبة بلاست">
+  <meta property="og:locale" content="ar_EG">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="المحبة بلاست | تصنيع الماستر باتش وتجارة خامات البلاستيك">
+  <meta property="og:description" content="نصنّع الماستر باتش بجميع أنواعه ونوفّر أفضل خامات البلاستيك — أي لون خاص خلال 24–48 ساعة.">
+  <meta property="og:url" content="https://www.almahabba-plast.com/">
+  <meta property="og:image" content="https://www.almahabba-plast.com/assets/img/hero-pellets-collage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon: brand pellets mark (inline SVG — replace with logo.png in Stage 6 if desired) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='18' cy='20' r='13' fill='%230B3C7A'/%3E%3Ccircle cx='31' cy='17' r='10' fill='%23FF7A1A'/%3E%3Ccircle cx='27' cy='31' r='9' fill='%2316A34A'/%3E%3C/svg%3E">
+
+  <!-- Schema.org Organization (facts only — no invented certifications) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "المحبة بلاست",
+    "alternateName": "Al Mahabba Plast",
+    "url": "https://www.almahabba-plast.com/",
+    "logo": "https://www.almahabba-plast.com/assets/img/hero-pellets-collage.jpg",
+    "description": "تصنيع الماستر باتش بجميع أنواعه واستيراد وتجارة جميع خامات البلاستيك في مصر.",
+    "email": "Nourhamam2014@yahoo.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "العاشر من رمضان",
+      "addressCountry": "EG"
+    },
+    "contactPoint": [
+      { "@type": "ContactPoint", "telephone": "+201221328445", "contactType": "sales", "availableLanguage": ["ar", "en"] },
+      { "@type": "ContactPoint", "telephone": "+201274889660", "contactType": "customer support", "availableLanguage": ["ar", "en"] }
+    ]
+  }
+  </script>
+
+  <!-- Fonts: Cairo (Arabic) + Inter (English) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN + brand config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+
+  <!-- Shared component styles -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<!-- data-page drives the active nav state; data-title-* swap on language toggle -->
+<body data-page="home"
+      data-title-ar="المحبة بلاست | تصنيع الماستر باتش وتجارة خامات البلاستيك في مصر"
+      data-title-en="Al Mahabba Plast | Masterbatch Manufacturing & Plastic Raw Materials in Egypt"
+      class="font-cairo bg-white">
+
+  <!-- Shared header (rendered by main.js) -->
+  <div id="site-header-mount"></div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         2) HERO — full-bleed gradient + floating pellets + collage
+         [IMAGE: assets/img/hero-pellets-collage.jpg — replace with a
+         real studio photo of your pellet range if desired]
+         ============================================================ -->
+    <section class="relative overflow-hidden bg-gradient-to-bl from-navy via-primary-800 to-primary text-white">
+      <!-- decorative floating pellets (brand motif) -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <span class="pellet pellet-float absolute w-16 h-16 bg-accent/60 top-24 end-[8%]"></span>
+        <span class="pellet pellet-float absolute w-10 h-10 bg-green-400/50 top-40 start-[6%]" style="animation-delay:1.2s"></span>
+        <span class="pellet pellet-float absolute w-7 h-7 bg-sky-400/50 bottom-40 end-[18%]" style="animation-delay:2.1s"></span>
+        <span class="pellet pellet-float absolute w-12 h-12 bg-red-400/40 bottom-24 start-[14%]" style="animation-delay:0.6s"></span>
+        <span class="pellet pellet-float absolute w-6 h-6 bg-yellow-300/50 top-56 end-[30%]" style="animation-delay:1.7s"></span>
+      </div>
+
+      <div class="relative max-w-content mx-auto px-4 sm:px-6 pt-16 pb-28 lg:pt-24 lg:pb-36 grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Text column -->
+        <div class="text-center lg:text-start">
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-bold text-accent-100 mb-6">
+            <span class="pellet-strip" aria-hidden="true">
+              <span class="pellet w-2.5 h-2.5 bg-accent"></span>
+              <span class="pellet w-2.5 h-2.5 bg-green-400"></span>
+              <span class="pellet w-2.5 h-2.5 bg-sky-400"></span>
+            </span>
+            <span data-i18n="hero.badge"></span>
+          </span>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-[56px] lg:leading-[1.25] font-black mb-6" data-i18n="hero.title"></h1>
+          <p class="text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed" data-i18n="hero.subtitle"></p>
+
+          <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <a href="contact.html#quote-form" class="btn btn-accent">
+              <i data-lucide="file-text" class="w-5 h-5"></i>
+              <span data-i18n="cta.quote"></span>
+            </a>
+            <a href="custom-colors.html#color-form" class="btn btn-outline-light">
+              <i data-lucide="palette" class="w-5 h-5"></i>
+              <span data-i18n="cta.customColor"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Image column: real pellets collage -->
+        <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div class="rounded-3xl overflow-hidden ring-1 ring-white/20 shadow-2xl aspect-square">
+            <img src="assets/img/hero-pellets-collage.jpg" alt="تشكيلة حبيبات ماستر باتش ملونة من المحبة بلاست"
+                 class="w-full h-full object-cover" width="1024" height="1024"
+                 fetchpriority="high" decoding="async">
+          </div>
+          <!-- floating color chip card -->
+          <div class="absolute -bottom-6 start-0 sm:start-6 bg-white text-ink rounded-2xl shadow-lift px-5 py-4 flex items-center gap-4">
+            <span class="pellet-strip" aria-hidden="true">
+              <span class="pellet w-5 h-5 bg-primary"></span>
+              <span class="pellet w-5 h-5 bg-accent"></span>
+              <span class="pellet w-5 h-5 bg-green-500"></span>
+              <span class="pellet w-5 h-5 bg-red-500"></span>
+            </span>
+            <p class="text-sm font-extrabold text-navy" data-i18n="hl.color"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3) HIGHLIGHTS STRIP — 4 icon items, overlapping hero bottom
+         ============================================================ -->
+    <section class="relative z-10 -mt-14 px-4 sm:px-6" aria-label="أبرز ما نقدمه">
+      <div class="max-w-content mx-auto">
+        <div class="card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x lg:divide-x-reverse divide-gray-100">
+          <div class="flex items-center gap-4 p-6 reveal">
+            <span class="w-12 h-12 rounded-2xl bg-primary-50 text-primary flex items-center justify-center shrink-0"><i data-lucide="layers" class="w-6 h-6"></i></span>
+            <p class="font-bold text-sm sm:text-base text-navy" data-i18n="hl.masterbatch"></p>
+          </div>
+          <div class="flex items-center gap-4 p-6 reveal" data-reveal-delay="100">
+            <span class="w-12 h-12 rounded-2xl bg-accent-50 text-accent flex items-center justify-center shrink-0"><i data-lucide="ship" class="w-6 h-6"></i></span>
+            <p class="font-bold text-sm sm:text-base text-navy" data-i18n="hl.raw"></p>
+          </div>
+          <div class="flex items-center gap-4 p-6 reveal" data-reveal-delay="200">
+            <span class="w-12 h-12 rounded-2xl bg-primary-50 text-primary flex items-center justify-center shrink-0"><i data-lucide="palette" class="w-6 h-6"></i></span>
+            <p class="font-bold text-sm sm:text-base text-navy" data-i18n="hl.color"></p>
+          </div>
+          <div class="flex items-center gap-4 p-6 reveal" data-reveal-delay="300">
+            <span class="w-12 h-12 rounded-2xl bg-accent-50 text-accent flex items-center justify-center shrink-0"><i data-lucide="factory" class="w-6 h-6"></i></span>
+            <p class="font-bold text-sm sm:text-base text-navy" data-i18n="hl.expertise"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4) PRODUCTS OVERVIEW — 3 large cards
+         [IMAGES: pellets-blue / pellets-green / pvc-compound-clear —
+         replace with dedicated product photography when available]
+         ============================================================ -->
+    <section class="section-pad bg-white">
+      <div class="max-w-content mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="home.products.kicker"></p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black text-navy mb-4" data-i18n="home.products.title"></h2>
+          <p class="text-muted leading-relaxed" data-i18n="home.products.subtitle"></p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-7">
+          <!-- Card 1: Masterbatch -->
+          <article class="card card-hover overflow-hidden flex flex-col reveal">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="assets/img/pellets-blue.jpg" alt="حبيبات ماستر باتش زرقاء" loading="lazy" decoding="async"
+                   class="w-full h-full object-cover" width="1024" height="1024">
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="text-2xl font-extrabold text-navy mb-3" data-i18n="products.masterbatch"></h3>
+              <p class="text-muted text-sm leading-relaxed flex-1" data-i18n="prod.masterbatch.desc"></p>
+              <a href="products.html#masterbatch" class="inline-flex items-center gap-2 text-primary font-bold mt-5 hover:gap-3 transition-all">
+                <span data-i18n="cta.more"></span>
+                <i data-lucide="arrow-left" class="w-4 h-4 icon-flip"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: PET colors -->
+          <article class="card card-hover overflow-hidden flex flex-col reveal" data-reveal-delay="120">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="assets/img/pellets-green.jpg" alt="حبيبات ملونة مخصصة لألوان PET" loading="lazy" decoding="async"
+                   class="w-full h-full object-cover" width="1024" height="1024">
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="text-2xl font-extrabold text-navy mb-3" data-i18n="products.pet"></h3>
+              <p class="text-muted text-sm leading-relaxed flex-1" data-i18n="prod.pet.desc"></p>
+              <a href="products.html#pet" class="inline-flex items-center gap-2 text-primary font-bold mt-5 hover:gap-3 transition-all">
+                <span data-i18n="cta.more"></span>
+                <i data-lucide="arrow-left" class="w-4 h-4 icon-flip"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Raw materials -->
+          <article class="card card-hover overflow-hidden flex flex-col reveal" data-reveal-delay="240">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="assets/img/pvc-compound-clear.jpg" alt="حبيبات خامات بلاستيك شفافة" loading="lazy" decoding="async"
+                   class="w-full h-full object-cover" width="1024" height="1024">
+            </div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="text-2xl font-extrabold text-navy mb-3" data-i18n="products.raw"></h3>
+              <p class="text-muted text-sm leading-relaxed flex-1" data-i18n="prod.raw.desc"></p>
+              <a href="products.html#raw" class="inline-flex items-center gap-2 text-primary font-bold mt-5 hover:gap-3 transition-all">
+                <span data-i18n="cta.more"></span>
+                <i data-lucide="arrow-left" class="w-4 h-4 icon-flip"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5) CUSTOM COLORS — key differentiator, 4 steps
+         ============================================================ -->
+    <section class="section-pad bg-navy text-white relative overflow-hidden">
+      <!-- subtle pellet texture -->
+      <div class="absolute inset-0 pointer-events-none opacity-40" aria-hidden="true">
+        <span class="pellet absolute w-40 h-40 bg-primary/40 blur-2xl -top-10 -start-10"></span>
+        <span class="pellet absolute w-52 h-52 bg-accent/20 blur-3xl bottom-0 end-[-4rem]"></span>
+      </div>
+
+      <div class="relative max-w-content mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="home.colors.kicker"></p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black mb-4 leading-snug" data-i18n="home.colors.title"></h2>
+          <p class="text-gray-300 leading-relaxed" data-i18n="home.colors.subtitle"></p>
+        </div>
+
+        <!-- 4 steps with directional arrows (auto-flipped in RTL) -->
+        <ol class="grid lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-6 items-stretch mb-14 list-none">
+          <li class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal">
+            <span class="w-10 h-10 rounded-full bg-accent text-white font-black flex items-center justify-center mx-auto mb-4">1</span>
+            <h3 class="font-extrabold mb-2" data-i18n="colors.step1"></h3>
+            <p class="text-sm text-gray-300 leading-relaxed" data-i18n="colors.step1.d"></p>
+          </li>
+          <li class="hidden lg:flex items-center text-accent" aria-hidden="true"><i data-lucide="arrow-left" class="w-7 h-7 icon-flip"></i></li>
+          <li class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal" data-reveal-delay="120">
+            <span class="w-10 h-10 rounded-full bg-accent text-white font-black flex items-center justify-center mx-auto mb-4">2</span>
+            <h3 class="font-extrabold mb-2" data-i18n="colors.step2"></h3>
+            <p class="text-sm text-gray-300 leading-relaxed" data-i18n="colors.step2.d"></p>
+          </li>
+          <li class="hidden lg:flex items-center text-accent" aria-hidden="true"><i data-lucide="arrow-left" class="w-7 h-7 icon-flip"></i></li>
+          <li class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal" data-reveal-delay="240">
+            <span class="w-10 h-10 rounded-full bg-accent text-white font-black flex items-center justify-center mx-auto mb-4">3</span>
+            <h3 class="font-extrabold mb-2" data-i18n="colors.step3"></h3>
+            <p class="text-sm text-gray-300 leading-relaxed" data-i18n="colors.step3.d"></p>
+          </li>
+          <li class="hidden lg:flex items-center text-accent" aria-hidden="true"><i data-lucide="arrow-left" class="w-7 h-7 icon-flip"></i></li>
+          <li class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal" data-reveal-delay="360">
+            <span class="w-10 h-10 rounded-full bg-accent text-white font-black flex items-center justify-center mx-auto mb-4">4</span>
+            <h3 class="font-extrabold mb-2" data-i18n="colors.step4"></h3>
+            <p class="text-sm text-gray-300 leading-relaxed" data-i18n="colors.step4.d"></p>
+          </li>
+        </ol>
+
+        <div class="text-center reveal">
+          <a href="custom-colors.html#color-form" class="btn btn-accent">
+            <i data-lucide="brush" class="w-5 h-5"></i>
+            <span data-i18n="cta.orderColorNow"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6) WHY CHOOSE US — 6 cards
+         ============================================================ -->
+    <section class="section-pad bg-surface">
+      <div class="max-w-content mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="home.why.kicker"></p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black text-navy" data-i18n="home.why.title"></h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div class="card card-hover p-7 reveal">
+            <span class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center mb-5"><i data-lucide="badge-check" class="w-6 h-6"></i></span>
+            <h3 class="text-lg font-extrabold text-navy mb-2" data-i18n="why.1"></h3>
+            <p class="text-muted text-sm leading-relaxed" data-i18n="why.1.d"></p>
+          </div>
+          <div class="card card-hover p-7 reveal" data-reveal-delay="80">
+            <span class="w-12 h-12 rounded-2xl bg-accent text-white flex items-center justify-center mb-5"><i data-lucide="scale" class="w-6 h-6"></i></span>
+            <h3 class="text-lg font-extrabold text-navy mb-2" data-i18n="why.2"></h3>
+            <p class="text-muted text-sm leading-relaxed" data-i18n="why.2.d"></p>
+          </div>
+          <div class="card card-hover p-7 reveal" data-reveal-delay="160">
+            <span class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center mb-5"><i data-lucide="factory" class="w-6 h-6"></i></span>
+            <h3 class="text-lg font-extrabold text-navy mb-2" data-i18n="why.3"></h3>
+            <p class="text-muted text-sm leading-relaxed" data-i18n="why.3.d"></p>
+          </div>
+          <div class="card card-hover p-7 reveal" data-reveal-delay="240">
+            <span class="w-12 h-12 rounded-2xl bg-accent text-white flex items-center justify-center mb-5"><i data-lucide="zap" class="w-6 h-6"></i></span>
+            <h3 class="text-lg font-extrabold text-navy mb-2" data-i18n="why.4"></h3>
+            <p class="text-muted text-sm leading-relaxed" data-i18n="why.4.d"></p>
+          </div>
+          <div class="card card-hover p-7 reveal" data-reveal-delay="320">
+            <span class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center mb-5"><i data-lucide="users" class="w-6 h-6"></i></span>
+            <h3 class="text-lg font-extrabold text-navy mb-2" data-i18n="why.5"></h3>
+            <p class="text-muted text-sm leading-relaxed" data-i18n="why.5.d"></p>
+          </div>
+          <div class="card card-hover p-7 reveal" data-reveal-delay="400">
+            <span class="w-12 h-12 rounded-2xl bg-accent text-white flex items-center justify-center mb-5"><i data-lucide="handshake" class="w-6 h-6"></i></span>
+            <h3 class="text-lg font-extrabold text-navy mb-2" data-i18n="why.6"></h3>
+            <p class="text-muted text-sm leading-relaxed" data-i18n="why.6.d"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7) ABOUT SNIPPET
+         [IMAGE: brand-poster.jpg — replace with a real factory photo]
+         ============================================================ -->
+    <section class="section-pad bg-white">
+      <div class="max-w-content mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal order-2 lg:order-1">
+          <div class="rounded-3xl overflow-hidden shadow-lift aspect-[4/5] max-w-md mx-auto lg:max-w-none">
+            <img src="assets/img/brand-poster.jpg" alt="بوستر المحبة بلاست لخامات EVA و PVC و PCu المتاحة" loading="lazy" decoding="async"
+                 class="w-full h-full object-cover" width="1080" height="1350">
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 reveal" data-reveal-delay="120">
+          <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="home.about.kicker"></p>
+          <h2 class="text-3xl sm:text-4xl font-black text-navy mb-6 leading-snug" data-i18n="home.about.title"></h2>
+          <p class="text-muted leading-relaxed mb-4" data-i18n="home.about.p1"></p>
+          <p class="text-muted leading-relaxed mb-8" data-i18n="home.about.p2"></p>
+          <a href="about.html" class="btn btn-primary">
+            <span data-i18n="home.about.link"></span>
+            <i data-lucide="arrow-left" class="w-5 h-5 icon-flip"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8) WHO WE SERVE — 5 industry cards
+         ============================================================ -->
+    <section class="section-pad bg-surface">
+      <div class="max-w-content mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="home.serve.kicker"></p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black text-navy" data-i18n="home.serve.title"></h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div class="card card-hover p-6 text-center reveal">
+            <span class="w-12 h-12 rounded-full bg-primary-50 text-primary flex items-center justify-center mx-auto mb-4"><i data-lucide="box" class="w-6 h-6"></i></span>
+            <h3 class="font-extrabold text-navy text-sm mb-2" data-i18n="serve.injection"></h3>
+            <p class="text-muted text-xs leading-relaxed" data-i18n="serve.injection.d"></p>
+          </div>
+          <div class="card card-hover p-6 text-center reveal" data-reveal-delay="80">
+            <span class="w-12 h-12 rounded-full bg-primary-50 text-primary flex items-center justify-center mx-auto mb-4"><i data-lucide="wind" class="w-6 h-6"></i></span>
+            <h3 class="font-extrabold text-navy text-sm mb-2" data-i18n="serve.blow"></h3>
+            <p class="text-muted text-xs leading-relaxed" data-i18n="serve.blow.d"></p>
+          </div>
+          <div class="card card-hover p-6 text-center reveal" data-reveal-delay="160">
+            <span class="w-12 h-12 rounded-full bg-primary-50 text-primary flex items-center justify-center mx-auto mb-4"><i data-lucide="film" class="w-6 h-6"></i></span>
+            <h3 class="font-extrabold text-navy text-sm mb-2" data-i18n="serve.film"></h3>
+            <p class="text-muted text-xs leading-relaxed" data-i18n="serve.film.d"></p>
+          </div>
+          <div class="card card-hover p-6 text-center reveal" data-reveal-delay="240">
+            <span class="w-12 h-12 rounded-full bg-primary-50 text-primary flex items-center justify-center mx-auto mb-4"><i data-lucide="glass-water" class="w-6 h-6"></i></span>
+            <h3 class="font-extrabold text-navy text-sm mb-2" data-i18n="serve.pet"></h3>
+            <p class="text-muted text-xs leading-relaxed" data-i18n="serve.pet.d"></p>
+          </div>
+          <div class="card card-hover p-6 text-center reveal" data-reveal-delay="320">
+            <span class="w-12 h-12 rounded-full bg-primary-50 text-primary flex items-center justify-center mx-auto mb-4"><i data-lucide="cable" class="w-6 h-6"></i></span>
+            <h3 class="font-extrabold text-navy text-sm mb-2" data-i18n="serve.pipes"></h3>
+            <p class="text-muted text-xs leading-relaxed" data-i18n="serve.pipes.d"></p>
+          </div>
+        </div>
+
+        <!-- honesty marker until the company confirms its target sectors -->
+        <p class="text-center text-xs text-muted mt-8 border border-dashed border-gray-300 rounded-full inline-block mx-auto px-4 py-1.5 w-fit" data-i18n="home.serve.note"></p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9) MARKETS — 3 cards
+         ============================================================ -->
+    <section class="section-pad bg-white">
+      <div class="max-w-content mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="home.markets.kicker"></p>
+          <h2 class="text-3xl sm:text-4xl font-black text-navy" data-i18n="home.markets.title"></h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-7 max-w-4xl mx-auto">
+          <div class="card card-hover p-8 text-center reveal">
+            <span class="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center mx-auto mb-5"><i data-lucide="map-pin" class="w-7 h-7"></i></span>
+            <h3 class="text-xl font-extrabold text-navy mb-2" data-i18n="markets.eg"></h3>
+            <p class="text-muted text-sm" data-i18n="markets.eg.d"></p>
+          </div>
+          <div class="card card-hover p-8 text-center reveal" data-reveal-delay="120">
+            <span class="w-14 h-14 rounded-2xl bg-accent text-white flex items-center justify-center mx-auto mb-5"><i data-lucide="landmark" class="w-7 h-7"></i></span>
+            <h3 class="text-xl font-extrabold text-navy mb-2" data-i18n="markets.ar"></h3>
+            <p class="text-muted text-sm" data-i18n="markets.ar.d"></p>
+          </div>
+          <div class="card card-hover p-8 text-center reveal" data-reveal-delay="240">
+            <span class="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center mx-auto mb-5"><i data-lucide="globe" class="w-7 h-7"></i></span>
+            <h3 class="text-xl font-extrabold text-navy mb-2" data-i18n="markets.eu"></h3>
+            <p class="text-muted text-sm" data-i18n="markets.eu.d"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10) FINAL CTA BAND
+         ============================================================ -->
+    <section class="relative overflow-hidden bg-gradient-to-l from-navy via-primary-700 to-primary text-white">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <span class="pellet pellet-float absolute w-14 h-14 bg-accent/50 top-8 start-[10%]"></span>
+        <span class="pellet pellet-float absolute w-9 h-9 bg-green-400/40 bottom-10 end-[12%]" style="animation-delay:1s"></span>
+        <span class="pellet pellet-float absolute w-6 h-6 bg-yellow-300/40 top-16 end-[30%]" style="animation-delay:2s"></span>
+      </div>
+      <div class="relative max-w-content mx-auto px-4 sm:px-6 py-20 lg:py-24 text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-black mb-5 reveal" data-i18n="home.cta.title"></h2>
+        <p class="text-gray-200 max-w-2xl mx-auto mb-9 leading-relaxed reveal" data-reveal-delay="100" data-i18n="home.cta.subtitle"></p>
+        <div class="flex flex-wrap gap-4 justify-center reveal" data-reveal-delay="200">
+          <a href="contact.html#quote-form" class="btn btn-accent">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+            <span data-i18n="cta.quote"></span>
+          </a>
+          <a data-wa-link href="#" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span data-i18n="cta.whatsapp"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer (rendered by main.js) -->
+  <div id="site-footer-mount"></div>
+
+  <!-- Floating WhatsApp + back-to-top (rendered by main.js) -->
+  <div id="floating-mount"></div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

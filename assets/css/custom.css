@@ -1,0 +1,284 @@
+/* ============================================================
+   المحبة بلاست — custom.css
+   Shared component styles that Tailwind CDN cannot express:
+   buttons, fields, reveal animations, pellets motif, scrollbar,
+   header shrink, accordion, focus states, reduced motion.
+   ============================================================ */
+
+:root {
+  --c-primary: #0B3C7A;
+  --c-navy: #071F3F;
+  --c-accent: #FF7A1A;
+  --c-surface: #F4F6F9;
+  --c-ink: #1F2937;
+  --header-h: 88px;          /* default header height */
+  --header-h-shrunk: 64px;   /* height after scrolling */
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  /* anchor jumps land just below the fixed header */
+  scroll-padding-top: calc(var(--header-h-shrunk) + 16px);
+}
+
+body {
+  color: var(--c-ink);
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Arabic needs taller line-height than Latin */
+html[lang="ar"] body { line-height: 1.8; }
+html[lang="en"] body { line-height: 1.65; }
+
+::selection { background: var(--c-accent); color: #fff; }
+
+/* ---------- Custom scrollbar (brand language) ---------- */
+html { scrollbar-width: thin; scrollbar-color: var(--c-primary) var(--c-surface); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--c-surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--c-primary);
+  border-radius: 8px;
+  border: 2px solid var(--c-surface);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--c-accent); }
+
+/* ---------- Accessibility ---------- */
+:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  inset-inline-start: 16px;
+  top: -60px;
+  z-index: 100;
+  background: var(--c-navy);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Buttons (one system across all pages) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s ease, background-color 0.25s ease,
+              color 0.25s ease, border-color 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn .lucide { width: 20px; height: 20px; flex-shrink: 0; }
+
+.btn-accent { background: var(--c-accent); color: #fff; box-shadow: 0 6px 18px -6px rgba(255, 122, 26, 0.55); }
+.btn-accent:hover { background: #F26A05; box-shadow: 0 10px 24px -6px rgba(255, 122, 26, 0.6); }
+
+.btn-primary { background: var(--c-primary); color: #fff; box-shadow: 0 6px 18px -6px rgba(11, 60, 122, 0.45); }
+.btn-primary:hover { background: #092F61; }
+
+.btn-outline { background: transparent; color: var(--c-primary); border-color: var(--c-primary); }
+.btn-outline:hover { background: var(--c-primary); color: #fff; }
+
+.btn-outline-light { background: rgba(255, 255, 255, 0.08); color: #fff; border-color: rgba(255, 255, 255, 0.65); }
+.btn-outline-light:hover { background: #fff; color: var(--c-navy); }
+
+.btn-whatsapp { background: #1FAF57; color: #fff; box-shadow: 0 6px 18px -6px rgba(31, 175, 87, 0.5); }
+.btn-whatsapp:hover { background: #178F47; }
+
+.btn-sm { padding: 10px 22px; font-size: 0.9rem; }
+
+/* ---------- Cards ---------- */
+.card {
+  background: #fff;
+  border-radius: 1rem; /* rounded-2xl */
+  border: 1px solid #E5EAF1;
+  box-shadow: 0 4px 20px -4px rgba(7, 31, 63, 0.08);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px -10px rgba(7, 31, 63, 0.18);
+}
+
+/* ---------- Sticky header ---------- */
+#site-header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#site-header .header-inner {
+  height: var(--header-h);
+  transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#site-header.scrolled { box-shadow: 0 2px 16px -6px rgba(7, 31, 63, 0.12); }
+#site-header.scrolled .header-inner { height: var(--header-h-shrunk); }
+
+/* Active nav link indicator */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  inset-inline-start: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--c-accent);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link.active { color: var(--c-primary); font-weight: 800; }
+
+/* RTL: flip directional arrows/icons automatically */
+html[dir="rtl"] .icon-flip { transform: scaleX(-1); }
+
+/* ---------- Pellets motif (brand decorative circles) ---------- */
+.pellet {
+  display: inline-block;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+.pellet-strip { display: flex; gap: 8px; align-items: center; }
+
+@keyframes pellet-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-18px) rotate(8deg); }
+}
+.pellet-float { animation: pellet-float 7s ease-in-out infinite; }
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Accordion ---------- */
+.accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.accordion-chevron { transition: transform 0.3s ease; }
+[aria-expanded="true"] .accordion-chevron { transform: rotate(180deg); }
+
+/* ---------- Forms ---------- */
+.field {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #D4DBE5;
+  background: #fff;
+  color: var(--c-ink);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field::placeholder { color: #9AA3B0; }
+.field:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 4px rgba(11, 60, 122, 0.12);
+}
+.field.field-invalid { border-color: #DC2626; box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1); }
+.field.field-valid   { border-color: #16A34A; }
+
+.field-error-msg { color: #DC2626; font-size: 0.85rem; margin-top: 6px; font-weight: 600; }
+
+.form-alert { border-radius: 12px; padding: 14px 18px; font-weight: 700; display: none; }
+.form-alert.show { display: block; }
+.form-alert.success { background: #ECFDF3; color: #15803D; border: 1px solid #BBF7D0; }
+.form-alert.error   { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+
+/* Honeypot — visually hidden, still in DOM for bots */
+.hp-field {
+  position: absolute !important;
+  inset-inline-start: -9999px !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Floating buttons ---------- */
+.float-btn {
+  position: fixed;
+  bottom: 24px;
+  z-index: 60;
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 8px 24px -6px rgba(7, 31, 63, 0.35);
+  transition: transform 0.25s ease, opacity 0.3s ease, background-color 0.25s ease;
+}
+.float-btn:hover { transform: translateY(-4px) scale(1.05); }
+
+#whatsapp-float { inset-inline-start: 24px; background: #1FAF57; }
+#whatsapp-float:hover { background: #178F47; }
+
+/* subtle attention pulse, disabled for reduced motion */
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 8px 24px -6px rgba(7,31,63,.35), 0 0 0 0 rgba(31,175,87,.45); }
+  70%  { box-shadow: 0 8px 24px -6px rgba(7,31,63,.35), 0 0 0 16px rgba(31,175,87,0); }
+  100% { box-shadow: 0 8px 24px -6px rgba(7,31,63,.35), 0 0 0 0 rgba(31,175,87,0); }
+}
+#whatsapp-float { animation: wa-pulse 2.6s ease-out infinite; }
+
+#back-to-top {
+  inset-inline-end: 24px;
+  background: var(--c-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; }
+#back-to-top:hover { background: var(--c-accent); }
+
+/* ---------- Mobile menu ---------- */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#mobile-menu.open { max-height: 480px; }
+
+/* ---------- Section helpers ---------- */
+.section-pad { padding-top: 96px; padding-bottom: 96px; }
+@media (max-width: 767px) {
+  .section-pad { padding-top: 64px; padding-bottom: 64px; }
+}
+
+/* keep phone numbers readable inside RTL paragraphs */
+.ltr-inline { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+/* ---------- Reduced motion: kill all non-essential animation ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

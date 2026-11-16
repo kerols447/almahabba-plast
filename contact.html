@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================= SEO =================
+       [PLACEHOLDER] Replace the domain before deployment (Stage 5). -->
+  <title>اتصل بنا | المحبة بلاست — اطلب عرض سعرك</title>
+  <meta name="description" content="تواصل مع المحبة بلاست: اطلب عرض سعر للماستر باتش أو ألوان PET أو خامات البلاستيك. هاتف واتساب وبريد إلكتروني، والعاشر من رمضان، مصر.">
+  <link rel="canonical" href="https://www.almahabba-plast.com/contact.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Al Mahabba Plast — المحبة بلاست">
+  <meta property="og:locale" content="ar_EG">
+  <meta property="og:title" content="اتصل بنا | المحبة بلاست">
+  <meta property="og:description" content="اطلب عرض سعر للماستر باتش أو ألوان PET أو خامات البلاستيك — نرد بسرعة.">
+  <meta property="og:url" content="https://www.almahabba-plast.com/contact.html">
+  <meta property="og:image" content="https://www.almahabba-plast.com/assets/img/hero-pellets-collage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='18' cy='20' r='13' fill='%230B3C7A'/%3E%3Ccircle cx='31' cy='17' r='10' fill='%23FF7A1A'/%3E%3Ccircle cx='27' cy='31' r='9' fill='%2316A34A'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body data-page="contact"
+      data-title-ar="اتصل بنا | المحبة بلاست — اطلب عرض سعرك"
+      data-title-en="Contact | Al Mahabba Plast — Request Your Quote"
+      class="font-cairo bg-white">
+
+  <div id="site-header-mount"></div>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO (shared compact banner pattern) -->
+    <section class="relative overflow-hidden bg-gradient-to-bl from-navy to-primary text-white">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <span class="pellet pellet-float absolute w-12 h-12 bg-accent/50 top-10 end-[14%]"></span>
+        <span class="pellet pellet-float absolute w-8 h-8 bg-green-400/40 bottom-10 start-[10%]" style="animation-delay:1.2s"></span>
+      </div>
+      <div class="relative max-w-content mx-auto px-4 sm:px-6 py-20 lg:py-24 text-center">
+        <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="contact.hero.kicker"></p>
+        <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-black mb-5 leading-snug" data-i18n="contact.hero.title"></h1>
+        <p class="text-gray-200 max-w-2xl mx-auto leading-relaxed" data-i18n="contact.hero.subtitle"></p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUOTE FORM + CONTACT CARDS
+         Submissions go to Formspree → Nourhamam2014@yahoo.com
+         ============================================================ -->
+    <section id="quote-form" class="section-pad bg-surface">
+      <div class="max-w-content mx-auto px-4 sm:px-6 grid lg:grid-cols-5 gap-10 items-start">
+
+        <!-- Form column -->
+        <div class="lg:col-span-3 card p-7 sm:p-9 reveal">
+          <h2 class="text-2xl font-black text-navy mb-2" data-i18n="contact.quote.title"></h2>
+          <p class="text-muted text-sm leading-relaxed mb-7" data-i18n="contact.quote.subtitle"></p>
+
+          <form data-mp-form novalidate>
+            <div class="form-alert mb-6" data-form-alert></div>
+
+            <!-- honeypot anti-spam -->
+            <div class="hp-field" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <input type="hidden" name="request_type" value="quote">
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-name"><span data-i18n="form.name"></span> <span class="text-red-500">*</span></label>
+                <input id="qf-name" name="name" class="field" required data-i18n-placeholder="form.name">
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-company"><span data-i18n="form.company"></span> <span class="text-red-500">*</span></label>
+                <input id="qf-company" name="company" class="field" required data-i18n-placeholder="form.company">
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-phone"><span data-i18n="form.phone"></span> <span class="text-red-500">*</span></label>
+                <input id="qf-phone" name="phone" class="field" required data-rule="phone" dir="ltr" inputmode="tel" placeholder="+20 1xx xxx xxxx">
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-email"><span data-i18n="form.email"></span> <span class="text-red-500">*</span></label>
+                <input id="qf-email" name="email" type="email" class="field" required data-rule="email" dir="ltr" inputmode="email" placeholder="name@company.com">
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-type"><span data-i18n="form.productType"></span> <span class="text-red-500">*</span></label>
+                <select id="qf-type" name="product_type" class="field" required>
+                  <option value="" data-i18n="form.productType.choose"></option>
+                  <option value="masterbatch" data-i18n="products.masterbatch"></option>
+                  <option value="pet-colors" data-i18n="products.pet"></option>
+                  <option value="raw-materials" data-i18n="products.raw"></option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-color"><span data-i18n="form.color"></span></label>
+                <input id="qf-color" name="color_code" class="field" data-i18n-placeholder="form.color">
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-material"><span data-i18n="form.material"></span></label>
+                <input id="qf-material" name="material" class="field" data-i18n-placeholder="form.material">
+              </div>
+              <div>
+                <label class="block font-bold mb-1.5 text-navy" for="qf-qty"><span data-i18n="form.quantity"></span></label>
+                <input id="qf-qty" name="monthly_quantity" class="field" data-i18n-placeholder="form.quantity">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block font-bold mb-1.5 text-navy" for="qf-delivery"><span data-i18n="form.delivery"></span></label>
+                <input id="qf-delivery" name="delivery_location" class="field" data-i18n-placeholder="form.delivery">
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <label class="block font-bold mb-1.5 text-navy" for="qf-notes"><span data-i18n="form.notes"></span></label>
+              <textarea id="qf-notes" name="notes" rows="4" class="field" data-i18n-placeholder="form.notes"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-accent w-full sm:w-auto mt-7">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              <span data-btn-label data-i18n="cta.send"></span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact cards column -->
+        <div class="lg:col-span-2 space-y-5 reveal" data-reveal-delay="120">
+          <h2 class="text-2xl font-black text-navy" data-i18n="contact.info.title"></h2>
+
+          <!-- Phone 1 -->
+          <a href="tel:+201221328445" class="card card-hover p-5 flex items-center gap-4 block">
+            <span class="w-12 h-12 rounded-2xl bg-primary-50 text-primary flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-5 h-5"></i></span>
+            <span>
+              <span class="block text-xs font-bold text-muted" data-i18n="contact.phone1Label"></span>
+              <span class="block font-extrabold text-navy ltr-inline" dir="ltr">+20 122 132 8445</span>
+            </span>
+          </a>
+
+          <!-- Phone 2 / inquiries -->
+          <a href="tel:+201274889660" class="card card-hover p-5 flex items-center gap-4 block">
+            <span class="w-12 h-12 rounded-2xl bg-primary-50 text-primary flex items-center justify-center shrink-0"><i data-lucide="phone-call" class="w-5 h-5"></i></span>
+            <span>
+              <span class="block text-xs font-bold text-muted" data-i18n="contact.phone2Label"></span>
+              <span class="block font-extrabold text-navy ltr-inline" dir="ltr">+20 127 488 9660</span>
+            </span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a data-wa-link href="#" target="_blank" rel="noopener" class="card card-hover p-5 flex items-center gap-4 block">
+            <span class="w-12 h-12 rounded-2xl bg-green-500 text-white flex items-center justify-center shrink-0"><i data-lucide="message-circle" class="w-5 h-5"></i></span>
+            <span>
+              <span class="block text-xs font-bold text-muted" data-i18n="contact.whatsappLabel"></span>
+              <span class="block font-extrabold text-navy ltr-inline" dir="ltr">+20 127 488 9660</span>
+            </span>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:Nourhamam2014@yahoo.com" class="card card-hover p-5 flex items-center gap-4 block">
+            <span class="w-12 h-12 rounded-2xl bg-accent-50 text-accent flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-5 h-5"></i></span>
+            <span class="min-w-0">
+              <span class="block text-xs font-bold text-muted" data-i18n="contact.emailLabel"></span>
+              <span class="block font-extrabold text-navy ltr-inline break-all" dir="ltr">Nourhamam2014@yahoo.com</span>
+            </span>
+          </a>
+
+          <!-- Address -->
+          <div class="card p-5 flex items-start gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-primary-50 text-primary flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-5 h-5"></i></span>
+            <span>
+              <span class="block font-extrabold text-navy" data-i18n="contact.address"></span>
+              <span class="block text-xs text-muted mt-1" data-i18n="contact.addressNote"></span>
+            </span>
+          </div>
+
+          <!-- Markets note -->
+          <div class="card p-5 flex items-start gap-4 bg-primary text-white border-primary">
+            <span class="w-12 h-12 rounded-2xl bg-white/15 text-white flex items-center justify-center shrink-0"><i data-lucide="globe" class="w-5 h-5"></i></span>
+            <p class="text-sm font-bold leading-relaxed" data-i18n="contact.hours"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GOOGLE MAPS — city-level embed until exact address confirmed
+         [PLACEHOLDER] Replace src with a pinned embed of the exact
+         factory address once street/zone is confirmed.
+         ============================================================ -->
+    <section class="bg-white">
+      <div class="max-w-content mx-auto px-4 sm:px-6 py-14">
+        <div class="text-center mb-8 reveal">
+          <h2 class="text-2xl sm:text-3xl font-black text-navy mb-2" data-i18n="contact.map.title"></h2>
+          <p class="text-xs text-muted border border-dashed border-gray-300 rounded-full inline-block px-4 py-1.5" data-i18n="contact.map.note"></p>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-card border border-gray-100 reveal" data-reveal-delay="100">
+          <iframe
+            src="https://www.google.com/maps?q=%D8%A7%D9%84%D8%B9%D8%A7%D8%B4%D8%B1%20%D9%85%D9%86%20%D8%B1%D9%85%D8%B6%D8%A7%D9%86%2C%20%D9%85%D8%B5%D8%B1&z=11&output=embed"
+            title="خريطة موقع المحبة بلاست — العاشر من رمضان، مصر"
+            width="100%" height="420" style="border:0" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL BAND -->
+    <section class="bg-surface">
+      <div class="max-w-content mx-auto px-4 sm:px-6 py-14 text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-navy mb-3" data-i18n="contact.call.title"></h2>
+        <p class="text-muted mb-7" data-i18n="contact.call.subtitle"></p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="tel:+201221328445" class="btn btn-primary">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            <span dir="ltr">+20 122 132 8445</span>
+          </a>
+          <a href="tel:+201274889660" class="btn btn-outline">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            <span dir="ltr">+20 127 488 9660</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer-mount"></div>
+  <div id="floating-mount"></div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

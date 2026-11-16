@@ -1,0 +1,5 @@
+# [PLACEHOLDER] Replace the domain in the Sitemap line before deployment (Stage 6).
+User-agent: *
+Allow: /
+
+Sitemap: https://www.almahabba-plast.com/sitemap.xml

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================= SEO =================
+       [PLACEHOLDER] Replace the domain before deployment (Stage 5). -->
+  <title>منتجاتنا | المحبة بلاست — ماستر باتش وألوان PET وخامات بلاستيك</title>
+  <meta name="description" content="تعرّف على ماستر باتش بجميع الأنواع، ألوان PET بدرجاتها، وخامات البلاستيك المستوردة وفق معايير جودة محددة من المحبة بلاست.">
+  <link rel="canonical" href="https://www.almahabba-plast.com/products.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Al Mahabba Plast — المحبة بلاست">
+  <meta property="og:locale" content="ar_EG">
+  <meta property="og:title" content="منتجاتنا | المحبة بلاست">
+  <meta property="og:description" content="ماستر باتش بجميع الأنواع، ألوان PET، وخامات البلاستيك المستوردة وفق معايير جودة محددة.">
+  <meta property="og:url" content="https://www.almahabba-plast.com/products.html">
+  <meta property="og:image" content="https://www.almahabba-plast.com/assets/img/hero-pellets-collage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='18' cy='20' r='13' fill='%230B3C7A'/%3E%3Ccircle cx='31' cy='17' r='10' fill='%23FF7A1A'/%3E%3Ccircle cx='27' cy='31' r='9' fill='%2316A34A'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body data-page="products"
+      data-title-ar="منتجاتنا | المحبة بلاست — ماستر باتش وألوان PET وخامات بلاستيك"
+      data-title-en="Our Products | Al Mahabba Plast — Masterbatch, PET Colors & Raw Materials"
+      class="font-cairo bg-white">
+
+  <div id="site-header-mount"></div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         PAGE HERO — compact banner consistent across inner pages
+         ============================================================ -->
+    <section class="relative overflow-hidden bg-gradient-to-bl from-navy to-primary text-white">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <span class="pellet pellet-float absolute w-12 h-12 bg-accent/50 top-10 end-[12%]"></span>
+        <span class="pellet pellet-float absolute w-8 h-8 bg-green-400/40 bottom-12 start-[8%]" style="animation-delay:1.4s"></span>
+      </div>
+      <div class="relative max-w-content mx-auto px-4 sm:px-6 py-20 lg:py-24 text-center">
+        <p class="text-accent font-extrabold tracking-wide mb-3" data-i18n="products.hero.kicker"></p>
+        <h1 class="text-3xl sm:text-4xl lg:text-[48px] font-black mb-5 leading-snug" data-i18n="products.hero.title"></h1>
+        <p class="text-gray-200 max-w-2xl mx-auto leading-relaxed" data-i18n="products.hero.subtitle"></p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TABS + PRODUCT GRID
+         Cards are generated from the PRODUCTS array in main.js —
+         edit that array to add/remove products.
+         ============================================================ -->
+    <section class="section-pad bg-surface">
+      <div class="max-w-content mx-auto px-4 sm:px-6">
+        <div id="product-tabs" class="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="تصنيفات المنتجات"></div>
+        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BAND — same pattern on every page
+         ============================================================ -->
+    <section class="bg-white">
+      <div class="max-w-content mx-auto px-4 sm:px-6 py-16">
+        <div class="rounded-3xl bg-gradient-to-l from-navy to-primary text-white p-10 lg:p-14 text-center relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <span class="pellet pellet-float absolute w-10 h-10 bg-accent/50 top-6 start-[10%]"></span>
+            <span class="pellet pellet-float absolute w-7 h-7 bg-yellow-300/40 bottom-8 end-[12%]" style="animation-delay:1s"></span>
+          </div>
+          <h2 class="relative text-2xl sm:text-3xl font-black mb-4" data-i18n="home.cta.title"></h2>
+          <p class="relative text-gray-200 max-w-xl mx-auto mb-8 leading-relaxed" data-i18n="home.cta.subtitle"></p>
+          <div class="relative flex flex-wrap gap-4 justify-center">
+            <a href="contact.html#quote-form" class="btn btn-accent">
+              <i data-lucide="file-text" class="w-5 h-5"></i><span data-i18n="cta.quote"></span>
+            </a>
+            <a data-wa-link href="#" target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <i data-lucide="message-circle" class="w-5 h-5"></i><span data-i18n="cta.whatsapp"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer-mount"></div>
+  <div id="floating-mount"></div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
